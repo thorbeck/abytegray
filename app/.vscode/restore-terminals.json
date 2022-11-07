@@ -1,0 +1,19 @@
+{
+  "artificialDelayMilliseconds": 500,
+  "keepExistingTerminalsOpen": false,
+  "runOnStartup": true,
+  "terminals": [
+    {
+      "splitTerminals": [
+        {
+          "name": "app",
+          "commands": ["cd C:\\Users\\toth\\Projects\\abytegray\\app"]
+        },
+        {
+          "name": "content",
+          "commands": ["cd C:\\Users\\toth\\Projects\\abytegray\\content"]
+        }
+      ]
+    }
+  ]
+}

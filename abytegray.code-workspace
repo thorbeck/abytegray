@@ -1,7 +1,13 @@
 {
   "folders": [
     {
-      "path": "."
+      "path": "app"
+    },
+    {
+      "path": "content"
+    },
+    {
+      "path": "web"
     }
   ],
   "settings": {}
