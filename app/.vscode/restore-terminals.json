@@ -11,7 +11,10 @@
         },
         {
           "name": "app dev",
-          "commands": ["cd C:\\Users\\toth\\Projects\\abytegray\\app"]
+          "commands": [
+            "cd C:\\Users\\toth\\Projects\\abytegray\\app",
+            "npm run dev"
+          ]
         }
       ]
     }
