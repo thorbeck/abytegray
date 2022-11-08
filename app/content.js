@@ -24,6 +24,11 @@ const n2m = new NotionToMarkdown({ notionClient: notion });
     };
   });
 
+  // Create data folder
+  if (!fs.existsSync(process.env.PATH_CONTENT)) {
+    fs.mkdirSync(process.env.PATH_CONTENT);
+  }
+
   // save json of pages metadata
   fs.writeFile('public/index.json', JSON.stringify(pages), (err) => {
     if (err) {
