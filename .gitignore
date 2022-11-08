@@ -25,3 +25,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# CUSTOM PATHS
+app/public/index.json
+app/public/data/
