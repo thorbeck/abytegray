@@ -1,20 +1,44 @@
 {
-  "name": "app",
+  "name": "abytegray",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "version": "1.0.0-beta",
+  "module": "dist/stencil/index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "build:ci": "tsc && vite build",
+    "dev": "npx webpack serve",
+    "dev:stencil": "stencil build --dev --watch",
+    "build": "webpack --env production",
+    "build:stencil": "stencil build --docs-json ./dist/stencil/docs.json",
+    "build:ci": "webpack --env production && stencil build",
     "build:content": "node content.js",
-    "preview": "vite preview"
+    "g": "plop"
   },
   "devDependencies": {
     "@notionhq/client": "^2.2.2",
+    "@stencil/core": "^2.19.2",
+    "@stencil/postcss": "^2.1.0",
+    "@stencil/sass": "^2.0.0",
+    "autoprefixer": "^10.4.13",
+    "babel-loader": "^9.1.0",
+    "css-loader": "^6.7.1",
+    "css-minimizer-webpack-plugin": "^4.2.2",
     "dotenv": "^16.0.3",
+    "gsap": "^3.11.3",
+    "html-loader": "^4.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.1",
     "notion-to-md": "^2.5.5",
+    "plop": "^3.1.1",
+    "postcss": "^8.4.19",
+    "postcss-loader": "^7.0.1",
+    "postcss-scss": "^4.0.5",
+    "sass": "^1.56.1",
+    "sass-loader": "^13.2.0",
+    "style-loader": "^3.3.1",
+    "ts-loader": "^9.4.1",
     "typescript": "^4.6.4",
-    "vite": "^3.2.0"
+    "webpack": "^5.75.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1",
+    "workbox-build": "^4.3.1"
   }
 }
