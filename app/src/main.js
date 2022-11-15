@@ -7,6 +7,10 @@ import './css/normalize.scss';
 import './elements/content/content';
 import './elements/logo/logo';
 
+// COMPONENTS
+import { defineCustomElements } from '@abytegray/components/loader/index';
+defineCustomElements();
+
 // ASSETS
 import './resources/android-chrome-192x192.png';
 import './resources/android-chrome-512x512.png';

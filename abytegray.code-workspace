@@ -2,6 +2,9 @@
   "folders": [
     {
       "path": "app"
+    },
+    {
+      "path": "components"
     }
   ],
   "settings": {}

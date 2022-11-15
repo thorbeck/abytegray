@@ -18,11 +18,6 @@ module.exports = (env) => {
     module: {
       rules: [
         {
-          test: /\.tsx?$/,
-          use: 'ts-loader',
-          exclude: /node_modules/,
-        },
-        {
           test: /\.module\.scss$/,
           use: [
             'style-loader',

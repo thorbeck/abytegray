@@ -17,10 +17,14 @@
           ]
         },
         {
-          "name": "app stencil",
+          "name": "components",
+          "commands": ["cd C:\\Users\\toth\\Projects\\abytegray\\components"]
+        },
+        {
+          "name": "components dev",
           "commands": [
-            "cd C:\\Users\\toth\\Projects\\abytegray\\app",
-            "npm run dev:stencil"
+            "cd C:\\Users\\toth\\Projects\\abytegray\\components",
+            "npm run dev"
           ]
         }
       ]

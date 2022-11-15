@@ -6,8 +6,6 @@ import autoprefixer from 'autoprefixer';
 export const config: Config = {
   namespace: 'abg',
   hashedFileNameLength: 10,
-  srcDir: 'src/components',
-  taskQueue: 'async',
   plugins: [
     sass(),
     postcss({
@@ -17,7 +15,7 @@ export const config: Config = {
   outputTargets: [
     {
       type: 'dist',
-      dir: 'dist/stencil',
+      esmLoaderPath: '../loader',
     },
   ],
 };
