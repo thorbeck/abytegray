@@ -15,6 +15,13 @@
             "cd C:\\Users\\toth\\Projects\\abytegray\\app",
             "npm run dev"
           ]
+        },
+        {
+          "name": "app stencil",
+          "commands": [
+            "cd C:\\Users\\toth\\Projects\\abytegray\\app",
+            "npm run dev:stencil"
+          ]
         }
       ]
     }
