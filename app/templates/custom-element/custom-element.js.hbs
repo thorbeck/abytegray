@@ -7,7 +7,7 @@ import styles from './{{lowerCase name}}.module.scss';
 
 {{#if useShadowDOM}}
 const template = document.createElement('template');
-template.id = 'eos-{{lowerCase name}}';
+template.id = 'abg-{{lowerCase name}}';
 template.innerHTML = `<style>${styles}</style>${markup}`;
 document.body.appendChild(template);
 {{/if}}
@@ -18,7 +18,7 @@ class {{toPascalCase name}} extends HTMLElement {
     super();
 		{{#if useShadowDOM}}
 		 // Get template by id
-    const template = document.getElementById('eos-{{lowerCase name}}');
+    const template = document.getElementById('abg-{{lowerCase name}}');
     // Set template content
     const templateContent = template.content;
     // Add shadowroot and add template content
@@ -32,11 +32,11 @@ class {{toPascalCase name}} extends HTMLElement {
   connectedCallback() {
 		{{#if useShadowDOM}}
 		const heading = this.shadowRoot.querySelector('span');
-		heading.innerHTML = `eos-{{lowerCase name}} works!`;
+		heading.innerHTML = `abg-{{lowerCase name}} works!`;
 		{{else}}
     this.classList.add(styles.{{lowerCase name}});
 		{{/if}}
   }
 }
 
-customElements.define('eos-{{lowerCase name}}', {{toPascalCase name}});
+customElements.define('abg-{{lowerCase name}}', {{toPascalCase name}});

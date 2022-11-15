@@ -14,7 +14,7 @@ import {
 {{/if}}
 
 @Component({
-  tag: 'eos-{{lowerCase name}}',
+  tag: 'abg-{{lowerCase name}}',
   styleUrl: '{{lowerCase name}}.scss',
   shadow: true,
 })
@@ -38,7 +38,7 @@ export class {{toPascalCase name}}
 	render() {
 		return (
 			<Host>
-				<h1>eos-{{lowerCase name}} works!</h1>
+				<h1>abg-{{lowerCase name}} works!</h1>
 				{{#if useArray}}
 				<ul>
 					{this.items.map((item) => (
