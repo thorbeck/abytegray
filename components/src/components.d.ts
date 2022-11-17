@@ -5,46 +5,45 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { RouterItem } from "./components/router/router.interface";
 export namespace Components {
-    interface EosTest {
-        "description": string;
-        "heading": string;
-        "showDescription": boolean;
-        "url": string;
+    interface AbgRouter {
+        "home": RouterItem;
+        "notFound": RouterItem;
+        "routes": RouterItem[];
     }
 }
-export interface EosTestCustomEvent<T> extends CustomEvent<T> {
+export interface AbgRouterCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLEosTestElement;
+    target: HTMLAbgRouterElement;
 }
 declare global {
-    interface HTMLEosTestElement extends Components.EosTest, HTMLStencilElement {
+    interface HTMLAbgRouterElement extends Components.AbgRouter, HTMLStencilElement {
     }
-    var HTMLEosTestElement: {
-        prototype: HTMLEosTestElement;
-        new (): HTMLEosTestElement;
+    var HTMLAbgRouterElement: {
+        prototype: HTMLAbgRouterElement;
+        new (): HTMLAbgRouterElement;
     };
     interface HTMLElementTagNameMap {
-        "eos-test": HTMLEosTestElement;
+        "abg-router": HTMLAbgRouterElement;
     }
 }
 declare namespace LocalJSX {
-    interface EosTest {
-        "description"?: string;
-        "heading"?: string;
-        "onEventLink"?: (event: EosTestCustomEvent<any>) => void;
-        "showDescription"?: boolean;
-        "url"?: string;
+    interface AbgRouter {
+        "home"?: RouterItem;
+        "notFound"?: RouterItem;
+        "onAbgRouter"?: (event: AbgRouterCustomEvent<any>) => void;
+        "routes"?: RouterItem[];
     }
     interface IntrinsicElements {
-        "eos-test": EosTest;
+        "abg-router": AbgRouter;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "eos-test": LocalJSX.EosTest & JSXBase.HTMLAttributes<HTMLEosTestElement>;
+            "abg-router": LocalJSX.AbgRouter & JSXBase.HTMLAttributes<HTMLAbgRouterElement>;
         }
     }
 }
