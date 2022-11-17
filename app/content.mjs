@@ -33,12 +33,14 @@ const n2m = new NotionToMarkdown({ notionClient: notion });
   // Create data folder
   if (!fs.existsSync(process.env.PATH_CONTENT)) {
     fs.mkdirSync(process.env.PATH_CONTENT);
-    console.info('Created data folder');
+    console.info(`Created ${process.env.PATH_CONTENT} folder`);
   }
 
   // save json of pages metadata
-  fs.writeFile('public/index.json', JSON.stringify(pages), (err) => {
-    console.info(err ? err : 'Saved index.json');
+  fs.writeFile(process.env.PATH_CONTENT_INDEX, JSON.stringify(pages), (err) => {
+    console.info(
+      err ? err : `Metadata saved to ${process.env.PATH_CONTENT_INDEX}`
+    );
   });
 
   // convert pages
