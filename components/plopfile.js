@@ -28,6 +28,11 @@ module.exports = function (plop) {
         name: 'useArray',
         message: 'Will the component display a list of content?',
       },
+      {
+        type: 'confirm',
+        name: 'useShadowDOM',
+        message: 'Use Shadow DOM?',
+      },
     ],
     actions: function (data) {
       var actions = [];

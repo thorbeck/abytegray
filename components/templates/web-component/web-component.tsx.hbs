@@ -16,7 +16,9 @@ import {
 @Component({
   tag: 'abg-{{lowerCase name}}',
   styleUrl: '{{lowerCase name}}.scss',
+	{{#if useShadowDOM}}
   shadow: true,
+	{{/if}}
 })
 export class {{toPascalCase name}}
 {

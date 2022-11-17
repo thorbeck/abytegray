@@ -6,11 +6,15 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { RouterItem } from "./components/router/router.interface";
+import { TagsItem } from "./components/tags/tags.interface";
 export namespace Components {
     interface AbgRouter {
         "home": RouterItem;
         "notFound": RouterItem;
         "routes": RouterItem[];
+    }
+    interface AbgTags {
+        "items": TagsItem[];
     }
 }
 export interface AbgRouterCustomEvent<T> extends CustomEvent<T> {
@@ -24,8 +28,15 @@ declare global {
         prototype: HTMLAbgRouterElement;
         new (): HTMLAbgRouterElement;
     };
+    interface HTMLAbgTagsElement extends Components.AbgTags, HTMLStencilElement {
+    }
+    var HTMLAbgTagsElement: {
+        prototype: HTMLAbgTagsElement;
+        new (): HTMLAbgTagsElement;
+    };
     interface HTMLElementTagNameMap {
         "abg-router": HTMLAbgRouterElement;
+        "abg-tags": HTMLAbgTagsElement;
     }
 }
 declare namespace LocalJSX {
@@ -35,8 +46,12 @@ declare namespace LocalJSX {
         "onAbgRouter"?: (event: AbgRouterCustomEvent<any>) => void;
         "routes"?: RouterItem[];
     }
+    interface AbgTags {
+        "items"?: TagsItem[];
+    }
     interface IntrinsicElements {
         "abg-router": AbgRouter;
+        "abg-tags": AbgTags;
     }
 }
 export { LocalJSX as JSX };
@@ -44,6 +59,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "abg-router": LocalJSX.AbgRouter & JSXBase.HTMLAttributes<HTMLAbgRouterElement>;
+            "abg-tags": LocalJSX.AbgTags & JSXBase.HTMLAttributes<HTMLAbgTagsElement>;
         }
     }
 }

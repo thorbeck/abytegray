@@ -4,6 +4,7 @@ import { RouterItem } from './router.interface';
 
 @Component({
   tag: 'abg-router',
+  styleUrl: 'router.scss',
   shadow: false,
 })
 export class Router {
@@ -26,12 +27,13 @@ export class Router {
     this.markup = route.markup;
   };
 
+  // watch for prop changes
   @Watch('routes')
   routesHandler() {
     this.locationHandler();
   }
 
-  componentDidLoad() {
+  componentWillLoad() {
     // Send event
     this.abgRouter.emit();
     // listen for hashevents and output to console

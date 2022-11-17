@@ -32,9 +32,9 @@ window.addEventListener(
     // set routes
     const routes = [
       {
-        slug: 'article',
-        title: 'Home',
-        markup: '<h1>Home</h1>',
+        slug: 'post',
+        title: 'post',
+        markup: '<h1>Post</h1>',
       },
       {
         slug: 'about',

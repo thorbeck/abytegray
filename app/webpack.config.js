@@ -15,6 +15,11 @@ module.exports = (env) => {
       assetModuleFilename: '[name][ext]',
       clean: true,
     },
+    devServer: {
+      static: {
+        directory: path.join(__dirname, 'dist'),
+      },
+    },
     module: {
       rules: [
         {
