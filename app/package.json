@@ -6,7 +6,7 @@
     "dev": "npx webpack serve --live-reload --no-hot",
     "build": "webpack --env production",
     "build:ci": "webpack --env production",
-    "build:content": "node content.js",
+    "build:content": "node content.mjs",
     "g": "plop"
   },
   "devDependencies": {
@@ -31,5 +31,14 @@
     "webpack": "^5.75.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.11.1"
-  }
+  },
+  "browserslist": [
+    "last 1 Chrome version",
+    "last 1 Firefox version",
+    "last 2 Edge major versions",
+    "last 2 Safari major versions",
+    "last 2 iOS major versions",
+    "Firefox ESR",
+    "not dead"
+  ]
 }
