@@ -1,6 +1,4 @@
-import { Component, h, Host, Prop } from '@stencil/core';
-
-import { TagsItem } from './tags.interface';
+import { Component, Event, EventEmitter, h, Prop } from '@stencil/core';
 
 @Component({
   tag: 'abg-tags',
@@ -8,19 +6,21 @@ import { TagsItem } from './tags.interface';
   shadow: true,
 })
 export class Tags {
-  @Prop() items: TagsItem[];
+  @Prop() tags?: string[] = [];
+
+  @Event() abgTags: EventEmitter;
 
   componentWillLoad() {
-    const tags = fetch('./posts.json');
-
-    tags
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-      });
+    this.abgTags.emit();
   }
 
   render() {
-    return <Host></Host>;
+    return (
+      <ul>
+        {this.tags.map(tag => (
+          <li key={tag}>{tag}</li>
+        ))}
+      </ul>
+    );
   }
 }
