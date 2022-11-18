@@ -18,7 +18,7 @@ window.addEventListener(
     event.target.home = {
       slug: '/',
       title: 'Home',
-      markup: '<h1>Home</h1>',
+      markup: '<abg-posts></abg-posts>',
     };
     event.target.notFound = {
       slug: '404',

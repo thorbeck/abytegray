@@ -18,6 +18,7 @@ export class Router {
   // Handles routing based on hashroutes
   locationHandler = async () => {
     let location = window.location.hash.replace('#', '');
+    console.log(location);
 
     // find page routes
     let route = location.length == 0 ? this.home : this.routes.find(item => item.slug === location) || this.notFound;

@@ -14,11 +14,20 @@ export class Tags {
     this.abgTags.emit();
   }
 
+  private handleUrlClick(e: Event, tag: string) {
+    e.preventDefault();
+    console.log(tag);
+  }
+
   render() {
     return (
       <ul>
         {this.tags.map(tag => (
-          <li key={tag}>{tag}</li>
+          <li key={tag}>
+            <a href="" onClick={e => this.handleUrlClick(e, tag)}>
+              {tag}
+            </a>
+          </li>
         ))}
       </ul>
     );

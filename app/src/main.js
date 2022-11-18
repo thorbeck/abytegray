@@ -26,5 +26,6 @@ import './resources/mstile-310x150.png';
 import './resources/mstile-310x310.png';
 
 // EVENTS
+import './events/posts';
 import './events/router';
 import './events/tags';
