@@ -18,6 +18,10 @@ module.exports = (env) => {
     devServer: {
       static: {
         directory: path.join(__dirname, 'dist'),
+        watch: false,
+      },
+      client: {
+        overlay: false,
       },
     },
     module: {
@@ -83,7 +87,7 @@ module.exports = (env) => {
       }),
     ],
     resolve: {
-      extensions: ['.tsx', '.ts', '.js'],
+      extensions: ['.tsx', '.js'],
     },
     optimization: {
       minimize: env.production,
