@@ -7,12 +7,12 @@
     "build": "webpack --env production",
     "build:ci": "webpack --env production",
     "build:content": "node content.mjs",
+    "u": "npm i && npm link @abytegray/components",
     "g": "plop"
   },
   "devDependencies": {
     "@notionhq/client": "^2.2.2",
     "autoprefixer": "^10.4.13",
-    "babel-loader": "^9.1.0",
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "^4.2.2",
     "dotenv": "^16.0.3",
