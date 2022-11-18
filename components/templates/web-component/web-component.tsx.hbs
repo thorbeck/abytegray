@@ -31,10 +31,11 @@ export class {{toPascalCase name}}
 	@Prop() url: string;
 	{{/if}}
 
-	@Event() eventLink: EventEmitter<any>;
+	@Event() abg{{toPascalCase name}}: EventEmitter<any>;
+
   private handleUrlClick(e: Event, link: string) {
     e.preventDefault();
-    this.eventLink.emit(link);
+    // Do something maybe
   }
 
 	render() {

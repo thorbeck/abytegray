@@ -6,7 +6,6 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { RouterItem } from "./components/router/router.interface";
-import { TagsItem } from "./components/tags/tags.interface";
 export namespace Components {
     interface AbgRouter {
         "home": RouterItem;
@@ -14,12 +13,16 @@ export namespace Components {
         "routes": RouterItem[];
     }
     interface AbgTags {
-        "items": TagsItem[];
+        "tags"?: string[];
     }
 }
 export interface AbgRouterCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLAbgRouterElement;
+}
+export interface AbgTagsCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAbgTagsElement;
 }
 declare global {
     interface HTMLAbgRouterElement extends Components.AbgRouter, HTMLStencilElement {
@@ -47,7 +50,8 @@ declare namespace LocalJSX {
         "routes"?: RouterItem[];
     }
     interface AbgTags {
-        "items"?: TagsItem[];
+        "onAbgTags"?: (event: AbgTagsCustomEvent<any>) => void;
+        "tags"?: string[];
     }
     interface IntrinsicElements {
         "abg-router": AbgRouter;
