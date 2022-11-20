@@ -4,10 +4,7 @@
       "path": "app"
     },
     {
-      "path": "content"
-    },
-    {
-      "path": "web"
+      "path": "components"
     }
   ],
   "settings": {}

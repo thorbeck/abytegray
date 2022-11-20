@@ -1,0 +1,17 @@
+@use '../util.scss';
+
+a {
+  @include util.reset;
+
+  display: inline-block;
+  color: var(--color-orange-mike);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-orange-mike);
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: var(--color-orange-mike);
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <rect class="brand" width="256" height="256"/>
+  <polygon class="one" points="256 256 0 256 256 0 256 256"/>
+  <polygon class="two" points="256 256 32 256 256 32 256 256"/>
+  <polygon class="three" points="256 256 64 256 256 64 256 256"/>
+  <polygon class="four" points="256 256 96 256 256 96 256 256"/>
+  <polygon class="five" points="256 256 128 256 256 128 256 256"/>
+  <polygon class="six" points="256 256 160 256 256 160 256 256"/>
+  <polygon class="seven" points="256 256 192 256 256 192 256 256"/>
+  <polygon class="eight" points="256 256 224 256 256 224 256 256"/>
+</svg>

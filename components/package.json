@@ -1,0 +1,35 @@
+{
+  "name": "@abytegray/components",
+  "version": "0.0.1",
+  "description": "abytegray web components",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/types/components.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/components/components.esm.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ionic-team/stencil-component-starter.git"
+  },
+  "files": [
+    "dist/",
+    "loader/"
+  ],
+  "scripts": {
+    "dev": "stencil build --watch",
+    "build": "stencil build --docs-json ./dist/docs.json",
+    "g": "plop"
+  },
+  "dependencies": {
+    "@stencil/core": "^2.13.0",
+    "@stencil/postcss": "^2.1.0",
+    "@stencil/sass": "^2.0.0"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "plop": "^3.1.1"
+  }
+}

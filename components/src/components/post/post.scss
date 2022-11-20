@@ -1,0 +1,45 @@
+:host {
+  article {
+    padding: var(--size-kilo);
+
+    > div {
+      border-radius: var(--size-oscar);
+
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: var(--color-mono-yankee);
+          color: var(--color-mono-alfa);
+        }
+      }
+
+      @media (prefers-color-scheme: light) {
+        body {
+          background-color: var(--color-mono-alfa);
+          color: var(--color-mono-zulu);
+        }
+      }
+    }
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    gap: var(--size-mike);
+    user-select: none;
+    background-size: cover;
+    border-radius: var(--size-oscar);
+
+    span {
+      font-size: 4em;
+    }
+
+    h1 {
+      font-size: var(--font-size-charlie);
+    }
+  }
+}
