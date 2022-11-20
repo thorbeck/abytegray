@@ -15,9 +15,19 @@ jobs:
         with:
           node-version: 16.x
           cache: "npm"
+      - name: Components - Install packages
+        run: npm ci
+        working-directory: ./components
+      - name: Components - Build
+        run: |
+          npm run build
+          npm link
+        working-directory: ./components
       - name: App - Install packages
         run: npm ci
         working-directory: ./app
       - name: App - Build
-        run: npm run build:ci
+        run: |
+          npm link @abytegray/components
+          npm run build:ci
         working-directory: ./app
