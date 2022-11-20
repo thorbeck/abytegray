@@ -49,13 +49,13 @@ const n2m = new NotionToMarkdown({ notionClient: notion });
     const markdownText = n2m.toMarkdownString(blocks);
 
     fs.writeFile(
-      `${process.env.PATH_CONTENT}/${page.id}.md`,
+      `${process.env.PATH_CONTENT}/${page.slug}.md`,
       markdownText,
       (err) => {
         console.info(
           err
             ? err
-            : `Saved ${page.title} as ${page.id}.md containing ${blocks.length} blocks.`
+            : `Saved ${page.title} as ${page.slug}.md containing ${blocks.length} blocks.`
         );
       }
     );
