@@ -17,11 +17,12 @@ export class Router {
 
   // Handles routing based on hashroutes
   locationHandler = async () => {
-    let location = window.location.hash.replace('#', '');
-    console.log(location);
+    // split has if child route
+
+    let location = window.location.hash.replace('#', '').split('/');
 
     // find page routes
-    let route = location.length == 0 ? this.home : this.routes.find(item => item.slug === location) || this.notFound;
+    let route = location[0] == '' ? this.home : this.routes.find(item => item.slug === location[0]) || this.notFound;
 
     // update based on route
     document.title = route.title;

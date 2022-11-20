@@ -6,7 +6,7 @@ window.addEventListener(
       {
         slug: 'post',
         title: 'post',
-        markup: '<h1>Post</h1>',
+        markup: '<abg-post></abg-post>',
       },
       {
         slug: 'about',

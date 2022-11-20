@@ -1,9 +1,12 @@
+// LIBS
+
 // CSS
 import './css/reference.scss';
 import './css/core.scss';
 import './css/normalize.scss';
 
 // CUSTOM ELEMENTS
+import './elements/layout/layout';
 import './elements/logo/logo';
 
 // COMPONENTS
@@ -27,5 +30,6 @@ import './resources/mstile-310x310.png';
 
 // EVENTS
 import './events/posts';
+import './events/post';
 import './events/router';
 import './events/tags';

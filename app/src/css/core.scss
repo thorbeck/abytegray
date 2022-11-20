@@ -1,10 +1,10 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@use '_util.scss';
+
+// TAGS
+@use './tag/_a.scss';
+
+// Box model
+@include util.box-model;
 
 html {
   font-size: 62.5%;
@@ -16,6 +16,12 @@ body {
   font-family: var(--font-family);
   font-size: var(--font-size-mike);
   font-weight: var(--font-weight-mike);
+  background-color: var(--color-mono-victor);
+  color: var(--color-mono-alfa);
+  @media (prefers-color-scheme: light) {
+    background-color: var(--color-mono-golf);
+    color: var(--color-mono-zulu);
+  }
 }
 
 p {
@@ -55,18 +61,4 @@ h5 {
 h6 {
   font-size: var(--font-size-mike);
   font-weight: var(--font-weight-oscar);
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: var(--color-mono-zulu);
-    color: var(--color-mono-alfa);
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  body {
-    background-color: var(--color-mono-alfa);
-    color: var(--color-mono-zulu);
-  }
 }

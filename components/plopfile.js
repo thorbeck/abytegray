@@ -52,7 +52,7 @@ module.exports = function (plop) {
       if (data.useArray) {
         actions.push({
           type: 'add',
-          path: 'src/components/{{lowerCase name}}/{{lowerCase name}}.interface.tsx',
+          path: 'src/components/{{lowerCase name}}/{{lowerCase name}}.interface.ts',
           templateFile: 'templates/web-component/web-component.interface.ts.hbs',
         });
       }
