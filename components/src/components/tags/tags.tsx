@@ -6,7 +6,7 @@ import { Component, Event, EventEmitter, h, Prop } from '@stencil/core';
   shadow: true,
 })
 export class Tags {
-  @Prop() tags?: string[] = [];
+  @Prop() tags?: string[];
 
   @Event() abgTags: EventEmitter;
 
