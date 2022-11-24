@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0-beta",
   "scripts": {
-    "dev": "npx webpack serve --live-reload --no-hot",
+    "dev": "npx webpack serve --live-reload --no-hot --env development",
     "build": "webpack --env production",
     "build:ci": "webpack --env production",
     "build:content": "node content.mjs",

@@ -1,4 +1,6 @@
-// LIBS
+// CORE
+import './router.js';
+import './events.js';
 
 // CSS
 import './css/reference.scss';
@@ -6,8 +8,8 @@ import './css/core.scss';
 import './css/normalize.scss';
 
 // CUSTOM ELEMENTS
-import './elements/layout/layout';
-import './elements/logo/logo';
+import './elements/layout/layout.js';
+import './elements/logo/logo.js';
 
 // COMPONENTS
 import { defineCustomElements } from '@abytegray/components/loader/index';
@@ -27,8 +29,3 @@ import './resources/mstile-144x144.png';
 import './resources/mstile-150x150.png';
 import './resources/mstile-310x150.png';
 import './resources/mstile-310x310.png';
-
-// EVENTS
-import './events';
-import './events/posts';
-import './events/router';

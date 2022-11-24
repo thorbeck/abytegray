@@ -4,9 +4,7 @@ const useState = (key) => {
     sessionStorage.getItem(key)
       ? JSON.parse(sessionStorage.getItem(key))
       : null;
-  const set = (value) => {
-    sessionStorage.setItem(key, JSON.stringify(value));
-  };
+  const set = (value) => sessionStorage.setItem(key, JSON.stringify(value));
 
   return Object.freeze({ get, set });
 };

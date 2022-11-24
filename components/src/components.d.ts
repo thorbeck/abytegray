@@ -5,23 +5,15 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Icon } from "./components/post/icon.interface";
-import { Cover } from "./components/post/cover.interface";
-import { PostsItem } from "./components/posts/posts.interface";
+import { ArticleItem } from "./components/article/article.interface";
+import { ArticleListItem } from "./components/article-list/article-list.interface";
 import { RouterItem } from "./components/router/router.interface";
 export namespace Components {
-    interface AbgPost {
-        "content": string;
-        "cover"?: Cover;
-        "created": string;
-        "heading": string;
-        "icon"?: Icon;
-        "slug": string;
-        "tags": string[];
-        "updated": string;
+    interface AbgArticle {
+        "item": ArticleItem;
     }
-    interface AbgPosts {
-        "posts": PostsItem[];
+    interface AbgArticleList {
+        "items": ArticleListItem[];
         "showDescription": boolean;
     }
     interface AbgRouter {
@@ -30,16 +22,16 @@ export namespace Components {
         "routes": RouterItem[];
     }
     interface AbgTags {
-        "tags"?: string[];
+        "tags": string[];
     }
 }
-export interface AbgPostCustomEvent<T> extends CustomEvent<T> {
+export interface AbgArticleCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLAbgPostElement;
+    target: HTMLAbgArticleElement;
 }
-export interface AbgPostsCustomEvent<T> extends CustomEvent<T> {
+export interface AbgArticleListCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLAbgPostsElement;
+    target: HTMLAbgArticleListElement;
 }
 export interface AbgRouterCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -50,17 +42,17 @@ export interface AbgTagsCustomEvent<T> extends CustomEvent<T> {
     target: HTMLAbgTagsElement;
 }
 declare global {
-    interface HTMLAbgPostElement extends Components.AbgPost, HTMLStencilElement {
+    interface HTMLAbgArticleElement extends Components.AbgArticle, HTMLStencilElement {
     }
-    var HTMLAbgPostElement: {
-        prototype: HTMLAbgPostElement;
-        new (): HTMLAbgPostElement;
+    var HTMLAbgArticleElement: {
+        prototype: HTMLAbgArticleElement;
+        new (): HTMLAbgArticleElement;
     };
-    interface HTMLAbgPostsElement extends Components.AbgPosts, HTMLStencilElement {
+    interface HTMLAbgArticleListElement extends Components.AbgArticleList, HTMLStencilElement {
     }
-    var HTMLAbgPostsElement: {
-        prototype: HTMLAbgPostsElement;
-        new (): HTMLAbgPostsElement;
+    var HTMLAbgArticleListElement: {
+        prototype: HTMLAbgArticleListElement;
+        new (): HTMLAbgArticleListElement;
     };
     interface HTMLAbgRouterElement extends Components.AbgRouter, HTMLStencilElement {
     }
@@ -75,27 +67,20 @@ declare global {
         new (): HTMLAbgTagsElement;
     };
     interface HTMLElementTagNameMap {
-        "abg-post": HTMLAbgPostElement;
-        "abg-posts": HTMLAbgPostsElement;
+        "abg-article": HTMLAbgArticleElement;
+        "abg-article-list": HTMLAbgArticleListElement;
         "abg-router": HTMLAbgRouterElement;
         "abg-tags": HTMLAbgTagsElement;
     }
 }
 declare namespace LocalJSX {
-    interface AbgPost {
-        "content"?: string;
-        "cover"?: Cover;
-        "created"?: string;
-        "heading"?: string;
-        "icon"?: Icon;
-        "onAbgPost"?: (event: AbgPostCustomEvent<string>) => void;
-        "slug"?: string;
-        "tags"?: string[];
-        "updated"?: string;
+    interface AbgArticle {
+        "item"?: ArticleItem;
+        "onAbgArticle"?: (event: AbgArticleCustomEvent<string>) => void;
     }
-    interface AbgPosts {
-        "onAbgPosts"?: (event: AbgPostsCustomEvent<any>) => void;
-        "posts"?: PostsItem[];
+    interface AbgArticleList {
+        "items"?: ArticleListItem[];
+        "onAbgArticleList"?: (event: AbgArticleListCustomEvent<any>) => void;
         "showDescription"?: boolean;
     }
     interface AbgRouter {
@@ -109,8 +94,8 @@ declare namespace LocalJSX {
         "tags"?: string[];
     }
     interface IntrinsicElements {
-        "abg-post": AbgPost;
-        "abg-posts": AbgPosts;
+        "abg-article": AbgArticle;
+        "abg-article-list": AbgArticleList;
         "abg-router": AbgRouter;
         "abg-tags": AbgTags;
     }
@@ -119,8 +104,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "abg-post": LocalJSX.AbgPost & JSXBase.HTMLAttributes<HTMLAbgPostElement>;
-            "abg-posts": LocalJSX.AbgPosts & JSXBase.HTMLAttributes<HTMLAbgPostsElement>;
+            "abg-article": LocalJSX.AbgArticle & JSXBase.HTMLAttributes<HTMLAbgArticleElement>;
+            "abg-article-list": LocalJSX.AbgArticleList & JSXBase.HTMLAttributes<HTMLAbgArticleListElement>;
             "abg-router": LocalJSX.AbgRouter & JSXBase.HTMLAttributes<HTMLAbgRouterElement>;
             "abg-tags": LocalJSX.AbgTags & JSXBase.HTMLAttributes<HTMLAbgTagsElement>;
         }

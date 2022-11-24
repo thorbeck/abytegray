@@ -6,7 +6,7 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 module.exports = (env) => {
   return {
     mode: env.development ? 'development' : 'production',
-    devtool: env.development ? 'inline-source-map' : false,
+    devtool: env.development ? 'eval' : false,
     entry: {
       main: path.resolve(__dirname, 'src', 'main.js'),
     },
@@ -86,11 +86,8 @@ module.exports = (env) => {
         inject: 'body',
       }),
     ],
-    resolve: {
-      extensions: ['.tsx', '.js'],
-    },
     optimization: {
-      minimize: env.production,
+      minimize: env.development ? false : true,
       minimizer: [new CssMinimizerPlugin(), '...'],
     },
     performance: {
