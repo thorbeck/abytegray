@@ -31,6 +31,7 @@ window.addEventListener('abgArticle', async (event) => {
 
 // article list component
 window.addEventListener('abgArticleList', async (event) => {
+  // state
   const { get, set } = useState('posts');
   const posts = get() || (await fetchPosts());
   set(posts);

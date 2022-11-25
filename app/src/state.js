@@ -4,7 +4,12 @@ const useState = (key) => {
     sessionStorage.getItem(key)
       ? JSON.parse(sessionStorage.getItem(key))
       : null;
-  const set = (value) => sessionStorage.setItem(key, JSON.stringify(value));
+  const set = (value) => {
+    if (!get()) {
+      sessionStorage.setItem(key, JSON.stringify(value));
+      sessionStorage.setItem(`${key}_dt`, new Date().toISOString());
+    }
+  };
 
   return Object.freeze({ get, set });
 };
