@@ -4,9 +4,9 @@ window.addEventListener(
     // set routes
     const routes = [
       {
-        slug: 'post',
-        title: 'post',
-        markup: '<abg-post></abg-post>',
+        slug: 'article',
+        title: 'article',
+        markup: '<abg-article></abg-article>',
       },
       {
         slug: 'about',
@@ -18,7 +18,7 @@ window.addEventListener(
     event.target.home = {
       slug: '/',
       title: 'Home',
-      markup: '<abg-posts></abg-posts>',
+      markup: '<abg-article-list></abg-article-list>',
     };
     event.target.notFound = {
       slug: '404',

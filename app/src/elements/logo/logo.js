@@ -15,10 +15,6 @@ class LogoElement extends HTMLElement {
         }).innerHTML = `<style>${styles}</style>${data}<h1>abytegray</h1>`;
       });
   }
-
-  // connectedCallback() {
-  //   console.log('LogoElement connected');
-  // }
 }
 
 customElements.define('abg-logo', LogoElement);

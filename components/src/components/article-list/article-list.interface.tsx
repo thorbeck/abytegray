@@ -1,4 +1,4 @@
-export interface PostsItem {
+export interface ArticleListItem {
   id: string;
   created: string;
   updated: string;
