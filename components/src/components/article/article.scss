@@ -1,22 +1,33 @@
-:host {
-  article {
-    padding: var(--size-kilo);
+@use '../../util';
 
+:host {
+  a {
+    @include util.reset;
+
+    display: inline-block;
+    color: var(--color-orange-mike);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-orange-mike);
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      color: var(--color-orange-mike);
+      text-decoration: none;
+    }
+  }
+  article {
     > div {
       border-radius: var(--size-oscar);
+      background-color: var(--color-mono-yankee);
+      color: var(--color-mono-alfa);
 
       @media (prefers-color-scheme: dark) {
-        body {
-          background-color: var(--color-mono-yankee);
-          color: var(--color-mono-alfa);
-        }
       }
 
       @media (prefers-color-scheme: light) {
-        body {
-          background-color: var(--color-mono-alfa);
-          color: var(--color-mono-zulu);
-        }
+        background-color: var(--color-mono-alfa);
+        color: var(--color-mono-zulu);
       }
     }
   }

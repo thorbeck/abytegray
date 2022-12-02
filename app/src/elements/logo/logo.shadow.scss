@@ -2,14 +2,14 @@
   display: flex;
   align-items: center;
   gap: var(--size-mike);
-  padding: var(--size-mike);
 
   & {
     h1 {
-      margin: 0;
+      margin: -6px 0 0;
       color: var(--color-mono-alfa);
-      font-size: var(--font-size-echo);
+      font-size: 3.6rem;
       font-weight: var(--font-weight-mike);
+      line-height: 1;
 
       @media (prefers-color-scheme: light) {
         color: var(--color-mono-zulu);
@@ -17,8 +17,8 @@
     }
 
     svg {
-      width: var(--size-india);
-      height: var(--size-india);
+      width: 2.2rem;
+      height: 2.2rem;
       border-radius: var(--size-oscar);
     }
 
