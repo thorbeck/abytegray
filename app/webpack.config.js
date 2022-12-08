@@ -66,7 +66,7 @@ module.exports = (env) => {
           exclude: /\.(module|shadow)\.scss$/,
         },
         {
-          test: /\.(svg|png|jpg|gif|ico|xml|webmanifest)$/,
+          test: /\.(svg|png|jpg|gif|ico|xml|webmanifest|woff2)$/,
           type: 'asset/resource',
         },
         {

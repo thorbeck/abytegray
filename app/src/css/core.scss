@@ -39,6 +39,7 @@ body {
   font-weight: var(--font-weight-mike);
   background-color: var(--color-mono-victor);
   color: var(--color-mono-alfa);
+
   @media (prefers-color-scheme: light) {
     background-color: var(--color-mono-golf);
     color: var(--color-mono-zulu);

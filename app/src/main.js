@@ -9,6 +9,8 @@ import './css/normalize.scss';
 
 // CUSTOM ELEMENTS
 import './elements/layout/layout.js';
+import './elements/layout/layout-list/layout-list.js';
+import './elements/layout/layout-page/layout-page.js';
 import './elements/logo/logo.js';
 
 // COMPONENTS

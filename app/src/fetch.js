@@ -49,3 +49,42 @@ export async function fetchPosts() {
     };
   });
 }
+
+// routes
+export function fetchRoutes() {
+  const routes = {
+    generic: [
+      {
+        slug: 'articles',
+        title: 'articles',
+        nav: true,
+        markup:
+          '<abg-layout-list><h1>Articles</h1><abg-tags></abg-tags><abg-article-list></abg-article-list></abg-layout-list>',
+      },
+      {
+        slug: 'article',
+        title: 'article',
+        nav: false,
+        markup:
+          '<abg-layout-page><abg-article></abg-article></abg-layout-page>',
+      },
+      {
+        slug: 'about',
+        title: 'About',
+        nav: true,
+        markup: '<abg-layout-page><h1>About</h1></abg-layout-page>',
+      },
+    ],
+    home: {
+      slug: '/',
+      title: 'Home',
+      markup: '<abg-layout-page><h1>Home</h1></abg-layout-page>',
+    },
+    notFound: {
+      slug: '404',
+      title: 'Page Not Found',
+      markup: '<h1>404</h1>',
+    },
+  };
+  return routes;
+}

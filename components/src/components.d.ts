@@ -7,6 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ArticleItem } from "./components/article/article.interface";
 import { ArticleListItem } from "./components/article-list/article-list.interface";
+import { NavItem } from "./components/nav/nav.interface";
 import { RouterItem } from "./components/router/router.interface";
 export namespace Components {
     interface AbgArticle {
@@ -15,6 +16,9 @@ export namespace Components {
     interface AbgArticleList {
         "items": ArticleListItem[];
         "showDescription": boolean;
+    }
+    interface AbgNav {
+        "routes": NavItem[];
     }
     interface AbgRouter {
         "home": RouterItem;
@@ -32,6 +36,10 @@ export interface AbgArticleCustomEvent<T> extends CustomEvent<T> {
 export interface AbgArticleListCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLAbgArticleListElement;
+}
+export interface AbgNavCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAbgNavElement;
 }
 export interface AbgRouterCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -54,6 +62,12 @@ declare global {
         prototype: HTMLAbgArticleListElement;
         new (): HTMLAbgArticleListElement;
     };
+    interface HTMLAbgNavElement extends Components.AbgNav, HTMLStencilElement {
+    }
+    var HTMLAbgNavElement: {
+        prototype: HTMLAbgNavElement;
+        new (): HTMLAbgNavElement;
+    };
     interface HTMLAbgRouterElement extends Components.AbgRouter, HTMLStencilElement {
     }
     var HTMLAbgRouterElement: {
@@ -69,6 +83,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "abg-article": HTMLAbgArticleElement;
         "abg-article-list": HTMLAbgArticleListElement;
+        "abg-nav": HTMLAbgNavElement;
         "abg-router": HTMLAbgRouterElement;
         "abg-tags": HTMLAbgTagsElement;
     }
@@ -83,6 +98,10 @@ declare namespace LocalJSX {
         "onAbgArticleList"?: (event: AbgArticleListCustomEvent<any>) => void;
         "showDescription"?: boolean;
     }
+    interface AbgNav {
+        "onAbgNav"?: (event: AbgNavCustomEvent<any>) => void;
+        "routes"?: NavItem[];
+    }
     interface AbgRouter {
         "home"?: RouterItem;
         "notFound"?: RouterItem;
@@ -96,6 +115,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "abg-article": AbgArticle;
         "abg-article-list": AbgArticleList;
+        "abg-nav": AbgNav;
         "abg-router": AbgRouter;
         "abg-tags": AbgTags;
     }
@@ -106,6 +126,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "abg-article": LocalJSX.AbgArticle & JSXBase.HTMLAttributes<HTMLAbgArticleElement>;
             "abg-article-list": LocalJSX.AbgArticleList & JSXBase.HTMLAttributes<HTMLAbgArticleListElement>;
+            "abg-nav": LocalJSX.AbgNav & JSXBase.HTMLAttributes<HTMLAbgNavElement>;
             "abg-router": LocalJSX.AbgRouter & JSXBase.HTMLAttributes<HTMLAbgRouterElement>;
             "abg-tags": LocalJSX.AbgTags & JSXBase.HTMLAttributes<HTMLAbgTagsElement>;
         }

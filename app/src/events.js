@@ -1,5 +1,11 @@
 import { useState } from './state.js';
-import { fetchPost, fetchTags, fetchPosts, fetchMarkdown } from './fetch.js';
+import {
+  fetchPost,
+  fetchTags,
+  fetchPosts,
+  fetchMarkdown,
+  fetchRoutes,
+} from './fetch.js';
 
 // tags component
 window.addEventListener(
@@ -31,9 +37,17 @@ window.addEventListener('abgArticle', async (event) => {
 
 // article list component
 window.addEventListener('abgArticleList', async (event) => {
+  console.log('abgArticleList ebvent');
   // state
   const { get, set } = useState('posts');
   const posts = get() || (await fetchPosts());
   set(posts);
   event.target.items = get();
+});
+
+// nav component
+window.addEventListener('abgNav', (event) => {
+  event.target.routes = fetchRoutes().generic.filter(
+    (route) => route.nav === true
+  );
 });
