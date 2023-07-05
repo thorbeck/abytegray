@@ -1,18 +1,12 @@
-import { useState } from './state.js';
-import {
-  fetchPost,
-  fetchTags,
-  fetchPosts,
-  fetchMarkdown,
-  fetchRoutes,
-} from './fetch.js';
+import { useState } from "./state.js";
+import { fetchPost, fetchTags, fetchPosts, fetchMarkdown, fetchRoutes } from "./fetch.js";
 
 // tags component
 window.addEventListener(
-  'abgTags',
+  "abgTags",
   async (event) => {
     // set up state
-    const { get, set } = useState('tags');
+    const { get, set } = useState("tags");
 
     // Do we have tags?
     const tags = get() || (await fetchTags());
@@ -23,9 +17,9 @@ window.addEventListener(
 );
 
 // article component
-window.addEventListener('abgArticle', async (event) => {
+window.addEventListener("abgArticle", async (event) => {
   // get slug from url hash
-  const slug = window.location.hash.split('/')[1];
+  const slug = window.location.hash.split("/")[1];
   // set up state
   const { get, set } = useState(slug);
 
@@ -36,18 +30,16 @@ window.addEventListener('abgArticle', async (event) => {
 });
 
 // article list component
-window.addEventListener('abgArticleList', async (event) => {
-  console.log('abgArticleList ebvent');
+window.addEventListener("abgArticleList", async (event) => {
+  console.log("abgArticleList event");
   // state
-  const { get, set } = useState('posts');
+  const { get, set } = useState("posts");
   const posts = get() || (await fetchPosts());
   set(posts);
   event.target.items = get();
 });
 
 // nav component
-window.addEventListener('abgNav', (event) => {
-  event.target.routes = fetchRoutes().generic.filter(
-    (route) => route.nav === true
-  );
+window.addEventListener("abgNav", (event) => {
+  event.target.routes = fetchRoutes().generic.filter((route) => route.nav === true);
 });
