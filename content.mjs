@@ -6,6 +6,8 @@ import { NotionToMarkdown } from "notion-to-md";
 
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 const n2m = new NotionToMarkdown({ notionClient: notion });
+const pathContent = "dist/content";
+const pathIndex = "dist/content/index.json";
 
 (async () => {
   const databaseId = process.env.NOTION_DATABASE_ID;
@@ -31,30 +33,22 @@ const n2m = new NotionToMarkdown({ notionClient: notion });
   });
 
   // Create data folder
-  if (!fs.existsSync(`${process.env.CONTENT_ROOT}/${process.env.CONTENT_DATA}`)) {
-    fs.mkdirSync(`${process.env.CONTENT_ROOT}/${process.env.CONTENT_DATA}`);
-    console.info(`Created ${process.env.CONTENT_ROOT}/${process.env.CONTENT_DATA} folder`);
+  if (!fs.existsSync(pathContent)) {
+    fs.mkdirSync(pathContent);
+    console.info(`Created ${this.pathContent} folder`);
   }
 
   // save json of pages metadata
-  fs.writeFile(
-    `${process.env.CONTENT_ROOT}/${process.env.CONTENT_DATA}/${process.env.CONTENT_INDEX}.json`,
-    JSON.stringify(pages),
-    (err) => {
-      console.info(
-        err
-          ? err
-          : `Metadata saved to ${process.env.CONTENT_ROOT}/${process.env.CONTENT_DATA}/${process.env.CONTENT_INDEX}.json`
-      );
-    }
-  );
+  fs.writeFile(pathIndex, JSON.stringify(pages), (err) => {
+    console.info(err ? err : `Metadata saved to ${pathIndex}`);
+  });
 
   // convert pages
   const markdown = pages.map(async (page) => {
     const blocks = await n2m.pageToMarkdown(page.id);
     const markdownText = n2m.toMarkdownString(blocks);
 
-    fs.writeFile(`${process.env.CONTENT_ROOT}/${process.env.CONTENT_DATA}/${page.slug}.md`, markdownText, (err) => {
+    fs.writeFile(`${pathContent}/${page.slug}.md`, markdownText, (err) => {
       console.info(err ? err : `Saved ${page.title} as ${page.slug}.md containing ${blocks.length} blocks.`);
     });
   });
