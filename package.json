@@ -4,7 +4,7 @@
   "version": "1.0.0-beta",
   "scripts": {
     "dev": "npx webpack serve --live-reload --no-hot --env development",
-    "dev:components": "stencil build --dev --watch",
+    "dev:components": "stencil build --watch",
     "build": "webpack --env production",
     "build:components": "stencil build",
     "build:ci": "webpack --env production",

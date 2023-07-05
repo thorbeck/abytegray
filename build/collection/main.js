@@ -14,7 +14,7 @@ import "./elements/layout/layout-page/layout-page.js";
 import "./elements/logo/logo.js";
 
 // COMPONENTS
-import { defineCustomElements } from "../dist/components/loader/index.js";
+import { defineCustomElements } from "../build/loader/index.js";
 defineCustomElements();
 
 // ASSETS
