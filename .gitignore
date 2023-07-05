@@ -27,5 +27,4 @@ dist-ssr
 *.sw?
 
 # CUSTOM PATHS
-app/public/index.json
-app/public/data/
+build
