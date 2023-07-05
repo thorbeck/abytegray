@@ -45,12 +45,15 @@ jobs:
       - name: Components - Build
         run: |
           npm run build:components
-      - name: "Create env file"
+      - name: Create env file
         run: |
           touch .env
           echo NOTION_API_KEY=${{ secrets.NOTION_API_KEY }} > .env
           echo NOTION_DATABASE_ID=${{ secrets.NOTION_DATABASE_ID }} > .env
           cat .env
+      - name: Get content from notion
+        run: |
+          npm run build:content
       - name: App - Build
         run: |
           npm run build:ci
