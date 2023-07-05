@@ -1,1 +1,0 @@
-{"version":3,"file":"nav.interface.js","sourceRoot":"","sources":["../../src/components/nav/nav.interface.ts"],"names":[],"mappings":"","sourcesContent":["export interface NavItem {\r\n  slug: string;\r\n  title: string;\r\n  nav: boolean;\r\n}\r\n"]}

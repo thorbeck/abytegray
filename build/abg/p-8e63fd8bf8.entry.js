@@ -1,2 +1,0 @@
-import{r as s,c as t,h as i,H as l}from"./p-dbc1b3bc.js";const r=":host h2{font-size:1.5em;margin:0;padding:0}";const a=class{constructor(i){s(this,i);this.abgArticleList=t(this,"abgArticleList",7);this.showDescription=false;this.items=[]}componentWillLoad(){this.abgArticleList.emit()}render(){return i(l,null,i("h1",null,"Articles"),i("ul",null,this.items.map((s=>i("li",{key:s.id},i("a",{href:`#article/${s.slug}`},i("h2",null,s.title)))))))}};a.style=r;export{a as abg_article_list};
-//# sourceMappingURL=p-8e63fd8bf8.entry.js.map
