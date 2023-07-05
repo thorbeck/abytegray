@@ -13,20 +13,12 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.x
-      - name: Components - Install packages
+          node-version: 18.16.1
+      - name: Install packages
         run: npm ci
-        working-directory: ./components
       - name: Components - Build
         run: |
-          npm run build
-          npm link
-        working-directory: ./components
-      - name: App - Install packages
-        run: npm ci
-        working-directory: ./app
+          npm run build:components
       - name: App - Build
         run: |
-          npm link @abytegray/components
           npm run build:ci
-        working-directory: ./app

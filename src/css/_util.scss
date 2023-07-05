@@ -1,0 +1,36 @@
+// Reset
+@mixin reset() {
+  // Removes browser styles
+  all: unset;
+
+  // Reverts display to spec default
+  display: revert;
+
+  // Preferred total width and height calculation.
+  box-sizing: border-box;
+}
+
+// Mixins when using Shadow DOM
+@mixin host() {
+  @include reset;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+}
+
+// Preferred total width and height calculation.
+@mixin box-model() {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+}
+
+// ANIMATION
+@mixin transition-default {
+  transition: all cubic-bezier(0.5, 0.5, 0.5, 1) 140ms;
+}
