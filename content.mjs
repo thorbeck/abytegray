@@ -35,7 +35,7 @@ const pathIndex = "dist/content/index.json";
   // Create data folder
   if (!fs.existsSync(pathContent)) {
     fs.mkdirSync(pathContent);
-    console.info(`Created ${this.pathContent} folder`);
+    console.info(`Created ${pathContent} folder`);
   }
 
   // save json of pages metadata
