@@ -1,0 +1,2 @@
+import{r as s,c as o,h as t}from"./p-dbc1b3bc.js";const l=":host ul{display:flex;list-style:none;margin:0;padding:0}:host a{color:var(--color-orange-mike)}";const a=class{constructor(t){s(this,t);this.abgTags=o(this,"abgTags",7);this.tags=[]}componentWillLoad(){this.abgTags.emit()}handleUrlClick(s,o){s.preventDefault();console.log(o)}render(){return t("ul",null,this.tags.map((s=>t("li",{key:s},t("a",{href:"",onClick:o=>this.handleUrlClick(o,s)},s)))))}};a.style=l;export{a as abg_tags};
+//# sourceMappingURL=p-490ca42f02.entry.js.map

@@ -1,0 +1,1 @@
+{"version":3,"file":"router.interface.js","sourceRoot":"","sources":["../../src/components/router/router.interface.tsx"],"names":[],"mappings":"","sourcesContent":["export interface RouterItem {\r\n  slug: string;\r\n  title: string;\r\n  markup: string;\r\n}\r\n"]}

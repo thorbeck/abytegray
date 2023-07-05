@@ -1,0 +1,1 @@
+{"version":3,"file":"icon.interface.js","sourceRoot":"","sources":["../../src/components/article/icon.interface.ts"],"names":[],"mappings":"","sourcesContent":["export interface Icon {\r\n  type: string;\r\n  emoji: string;\r\n}\r\n"]}

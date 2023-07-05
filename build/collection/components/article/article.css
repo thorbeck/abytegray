@@ -1,0 +1,44 @@
+:host a {
+  all: unset;
+  display: revert;
+  box-sizing: border-box;
+  display: inline-block;
+  color: var(--color-orange-mike);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-orange-mike);
+  cursor: pointer;
+}
+:host a:hover, :host a:focus {
+  color: var(--color-orange-mike);
+  text-decoration: none;
+}
+:host article > div {
+  border-radius: var(--size-oscar);
+  background-color: var(--color-mono-yankee);
+  color: var(--color-mono-alfa);
+}
+@media (prefers-color-scheme: light) {
+  :host article > div {
+    background-color: var(--color-mono-alfa);
+    color: var(--color-mono-zulu);
+  }
+}
+:host img {
+  max-width: 100%;
+  height: auto;
+}
+:host header {
+  display: flex;
+  align-items: center;
+  gap: var(--size-mike);
+  -webkit-user-select: none;
+          user-select: none;
+  background-size: cover;
+  border-radius: var(--size-oscar);
+}
+:host header span {
+  font-size: 4em;
+}
+:host header h1 {
+  font-size: var(--font-size-charlie);
+}
