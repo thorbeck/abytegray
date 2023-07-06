@@ -1,6 +1,6 @@
 import { Config } from "@stencil/core";
 import { sass } from "@stencil/sass";
-import { postcss } from "@stencil/postcss";
+import { postcss } from "@stencil-community/postcss";
 import autoprefixer from "autoprefixer";
 
 export const config: Config = {

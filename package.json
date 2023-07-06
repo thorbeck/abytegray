@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@notionhq/client": "^2.2.2",
-    "@stencil/postcss": "^2.1.0",
+    "@stencil-community/postcss": "^2.1.0",
     "@stencil/sass": "^3.0.4",
     "autoprefixer": "^10.4.13",
     "css-loader": "^6.7.1",
