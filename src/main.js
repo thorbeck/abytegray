@@ -1,5 +1,5 @@
 // CORE
-import "./router.js";
+import "./pages/pages.events.js";
 import "./events.js";
 
 // CSS

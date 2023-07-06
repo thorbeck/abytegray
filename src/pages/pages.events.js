@@ -1,7 +1,8 @@
-import { fetchRoutes } from './fetch.js';
+import { fetchRoutes } from "./pages.fetch.js";
 
+// router events
 window.addEventListener(
-  'abgRouter',
+  "abgRouter",
   (event) => {
     // set routes
     const routes = fetchRoutes();
@@ -12,3 +13,8 @@ window.addEventListener(
   },
   { once: true }
 );
+
+// nav events
+window.addEventListener("abgNav", (event) => {
+  event.target.routes = fetchRoutes().generic.filter((route) => route.nav === true);
+});

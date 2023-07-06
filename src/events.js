@@ -38,8 +38,3 @@ window.addEventListener("abgArticleList", async (event) => {
   set(posts);
   event.target.items = get();
 });
-
-// nav component
-window.addEventListener("abgNav", (event) => {
-  event.target.routes = fetchRoutes().generic.filter((route) => route.nav === true);
-});

@@ -1,23 +1,23 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = (env) => {
   return {
-    mode: env.development ? 'development' : 'production',
-    devtool: env.development ? 'eval' : false,
+    mode: env.development ? "development" : "production",
+    devtool: env.development ? "eval" : false,
     entry: {
-      main: path.resolve(__dirname, 'src', 'main.js'),
+      main: path.resolve(__dirname, "src", "main.js"),
     },
     output: {
-      path: path.resolve(__dirname, 'dist'),
-      assetModuleFilename: '[name][ext]',
+      path: path.resolve(__dirname, "dist"),
+      assetModuleFilename: "[name][ext]",
       clean: true,
     },
     devServer: {
       static: {
-        directory: path.join(__dirname, 'dist'),
+        directory: path.join(__dirname, "dist"),
         watch: false,
       },
       client: {
@@ -29,49 +29,44 @@ module.exports = (env) => {
         {
           test: /\.module\.scss$/,
           use: [
-            'style-loader',
+            "style-loader",
             {
-              loader: 'css-loader',
+              loader: "css-loader",
               options: {
                 modules: {
-                  localIdentName: '[local]--[hash:base64:8]',
+                  localIdentName: "[local]--[hash:base64:8]",
                 },
               },
             },
-            'postcss-loader',
-            'sass-loader',
+            "postcss-loader",
+            "sass-loader",
           ],
         },
         {
           test: /\.shadow\.scss$/,
           use: [
             {
-              loader: 'css-loader',
+              loader: "css-loader",
               options: {
-                exportType: 'string',
+                exportType: "string",
               },
             },
-            'postcss-loader',
-            'sass-loader',
+            "postcss-loader",
+            "sass-loader",
           ],
         },
         {
           test: /\.(scss)$/,
-          use: [
-            MiniCssExtractPlugin.loader,
-            'css-loader',
-            'postcss-loader',
-            'sass-loader',
-          ],
+          use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"],
           exclude: /\.(module|shadow)\.scss$/,
         },
         {
           test: /\.(svg|png|jpg|gif|ico|xml|webmanifest|woff2)$/,
-          type: 'asset/resource',
+          type: "asset/resource",
         },
         {
           test: /\.html$/,
-          loader: 'html-loader',
+          loader: "html-loader",
           options: {
             minimize: false,
           },
@@ -81,17 +76,17 @@ module.exports = (env) => {
     plugins: [
       new MiniCssExtractPlugin(),
       new HtmlWebpackPlugin({
-        template: './src/index.html',
+        template: "./src/index.html",
         minify: false,
-        inject: 'body',
+        inject: "body",
       }),
     ],
     optimization: {
       minimize: env.development ? false : true,
-      minimizer: [new CssMinimizerPlugin(), '...'],
+      minimizer: [new CssMinimizerPlugin(), "..."],
     },
     performance: {
-      hints: env.production ? 'error' : false,
+      hints: env.production ? "error" : false,
       maxEntrypointSize: env.production ? 170000 : 512000,
     },
   };
