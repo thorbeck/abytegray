@@ -9,6 +9,10 @@ Personal blog/web app built with vanilla web components. No frameworks, no build
 - **Components:** Native Web Components with Shadow DOM + TSX syntax
 - **Styling:** CSS Modules (`.module.css`) with CSS custom properties
 - **Deployment Target:** Static site (GitHub Pages)
+- **Browser Support:** Modern browsers only (Chrome 90+, Firefox 88+, Safari 14+, Edge 90+)
+  - No polyfills or fallbacks for older browsers
+  - Use modern Web APIs freely (Constructable Stylesheets, ES2020+ features, etc.)
+  - No transpilation beyond TypeScript to JavaScript
 
 ## Architecture Decisions
 
@@ -27,6 +31,8 @@ Personal blog/web app built with vanilla web components. No frameworks, no build
 - CSS preprocessors (Sass, Less, Stylus)
 - Virtual DOM libraries
 - Runtime template libraries (other than our custom JSX factory)
+- Polyfills or fallbacks for legacy browsers
+- Unnecessary transpilation or compilation
 
 ## File Structure
 ```
