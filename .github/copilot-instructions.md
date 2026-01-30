@@ -5,8 +5,8 @@ Personal blog/web app built with vanilla web components. No frameworks, no build
 
 ## Core Technology Stack
 - **Build Tool:** Vite 7.x (dev server with HMR)
-- **Language:** TypeScript (strict mode, ES2020 target, no JSX)
-- **Components:** Native Web Components with Shadow DOM
+- **Language:** TypeScript + TSX (strict mode, ES2020 target)
+- **Components:** Native Web Components with Shadow DOM + TSX syntax
 - **Styling:** CSS Modules (`.module.css`) with CSS custom properties
 - **Deployment Target:** Static site (GitHub Pages)
 
@@ -16,30 +16,35 @@ Personal blog/web app built with vanilla web components. No frameworks, no build
 - Native `HTMLElement` class extensions
 - `customElements.define()` for registration
 - Shadow DOM (`this.attachShadow({ mode: 'open' })`)
-- Template literals for HTML rendering
+- TSX syntax for HTML rendering (custom JSX factory, no React)
+- Custom `h()` JSX factory from `src/utils/jsx-factory.ts`
 - CSS custom properties for theming/variables
 - Vanilla CSS with CSS Modules for scoping
 
 ### ❌ Never Use
 - Frameworks (React, Vue, Angular, Svelte, Lit, Stencil, etc.)
-- JSX/TSX syntax in components
+- React or other framework-specific JSX factories
 - CSS preprocessors (Sass, Less, Stylus)
-- Build-time JSX transformations
-- Runtime template libraries
+- Virtual DOM libraries
+- Runtime template libraries (other than our custom JSX factory)
 
 ## File Structure
 ```
 src/
   components/
-    component-name.ts          # Component logic
+    component-name.tsx         # Component logic with TSX
     component-name.module.css  # Scoped styles
+  utils/
+    jsx-factory.ts             # Custom JSX factory (h, Fragment)
+  jsx.d.ts                     # JSX type definitions
   index.ts                     # Entry point, registers all components
 index.html                     # HTML entry for Vite
 old/                          # IGNORE - legacy code, not current implementation
 ```
 
 ## Component Pattern
-```typescript
+```tsx
+import { h } from '../utils/jsx-factory';
 import styles from './component-name.module.css';
 
 export class ComponentName extends HTMLElement {
@@ -55,14 +60,34 @@ export class ComponentName extends HTMLElement {
   render() {
     if (!this.shadowRoot) return;
     
-    this.shadowRoot.innerHTML = `
-      <style>
-        /* Inline styles for shadow DOM */
-      </style>
-      <div class="component-name">
-        <!-- Component markup -->
+    const value = this.getAttribute('attribute-name') || 'default';
+    
+    // Clear shadow root
+    this.shadowRoot.innerHTML = '';
+    
+    // Create elements using TSX
+    const styleEl = (
+      <style>{this.getStyles()}</style>
+    );
+    
+    const contentEl = (
+      <div className="component-name">
+        <p>{value}</p>
         <slot></slot>
       </div>
+    );
+    
+    // Append to shadow root
+    this.shadowRoot.appendChild(styleEl);
+    this.shadowRoot.appendChild(contentEl);
+  }
+  
+  getStyles(): string {
+    return `
+      /* Inline styles for shadow DOM */
+      .component-name {
+        /* styles here */
+      }
     `;
   }
   
