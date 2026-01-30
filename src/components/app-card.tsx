@@ -1,4 +1,9 @@
 import { h } from '../utils/jsx-factory';
+import styles from './app-card.module.css?inline';
+
+// Create stylesheet once, shared across all instances
+const sheet = new CSSStyleSheet();
+sheet.replaceSync(styles);
 
 export class AppCard extends HTMLElement {
   constructor() {
@@ -19,10 +24,8 @@ export class AppCard extends HTMLElement {
     // Clear shadow root
     this.shadowRoot.innerHTML = '';
 
-    // Create elements using JSX
-    const styleEl = (
-      <style>{this.getStyles()}</style>
-    );
+    // Adopt the shared stylesheet (efficient, reused across all instances)
+    this.shadowRoot.adoptedStyleSheets = [sheet];
 
     const cardEl = (
       <div className="app-card">
@@ -33,34 +36,7 @@ export class AppCard extends HTMLElement {
     );
 
     // Append to shadow root
-    this.shadowRoot.appendChild(styleEl);
     this.shadowRoot.appendChild(cardEl);
-  }
-
-  getStyles(): string {
-    return `
-      /* Inline styles for shadow DOM */
-      .app-card {
-        display: block;
-        padding: 1.5rem;
-        border: 1px solid var(--border-color, #e0e0e0);
-        border-radius: 8px;
-        background-color: var(--bg-color, #ffffff);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-
-      .title {
-        margin: 0 0 0.5rem 0;
-        font-size: 1.5rem;
-        color: var(--title-color, #333333);
-      }
-
-      .content {
-        margin: 0;
-        line-height: 1.6;
-        color: var(--text-color, #666666);
-      }
-    `;
   }
 
   static get observedAttributes() {

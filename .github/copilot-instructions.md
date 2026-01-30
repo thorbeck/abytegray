@@ -45,7 +45,11 @@ old/                          # IGNORE - legacy code, not current implementation
 ## Component Pattern
 ```tsx
 import { h } from '../utils/jsx-factory';
-import styles from './component-name.module.css';
+import styles from './component-name.module.css?inline';
+
+// Create stylesheet once, shared across all instances
+const sheet = new CSSStyleSheet();
+sheet.replaceSync(styles);
 
 export class ComponentName extends HTMLElement {
   constructor() {
@@ -65,10 +69,8 @@ export class ComponentName extends HTMLElement {
     // Clear shadow root
     this.shadowRoot.innerHTML = '';
     
-    // Create elements using TSX
-    const styleEl = (
-      <style>{this.getStyles()}</style>
-    );
+    // Adopt the shared stylesheet (efficient, reused across all instances)
+    this.shadowRoot.adoptedStyleSheets = [sheet];
     
     const contentEl = (
       <div className="component-name">
@@ -78,17 +80,7 @@ export class ComponentName extends HTMLElement {
     );
     
     // Append to shadow root
-    this.shadowRoot.appendChild(styleEl);
     this.shadowRoot.appendChild(contentEl);
-  }
-  
-  getStyles(): string {
-    return `
-      /* Inline styles for shadow DOM */
-      .component-name {
-        /* styles here */
-      }
-    `;
   }
   
   static get observedAttributes() {
@@ -106,9 +98,11 @@ customElements.define('component-name', ComponentName);
 ```
 
 ## Styling Guidelines
+- Import CSS modules with `?inline` suffix and use Constructable Stylesheets
+- Create shared `CSSStyleSheet` instances at module level for performance
+- Use `adoptedStyleSheets` to attach styles to Shadow DOM
 - Use CSS custom properties for all theming values
 - Define custom properties in `:root` or `:host` with fallback values
-- Import CSS modules for reference, but inline styles in shadow DOM
 - Use semantic class names
 - Leverage cascade and inheritance where appropriate
 
