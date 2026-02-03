@@ -1,4 +1,4 @@
-import { h } from '../utils/jsx-factory';
+import { h } from 'embla';
 import styles from './app-card.module.css?inline';
 
 // Create stylesheet once, shared across all instances

@@ -2,7 +2,7 @@
  * TypeScript JSX type definitions for custom JSX factory
  */
 
-import { h, Fragment } from './utils/jsx-factory';
+import { h, Fragment } from 'embla';
 
 declare global {
   namespace JSX {

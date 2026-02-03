@@ -3,10 +3,13 @@
 ## Project Overview
 Personal blog/web app built with vanilla web components. No frameworks, no build complexity—just modern web standards.
 
+**Uses Embla library** for JSX factory and type definitions (see embla project for library details).
+
 ## Core Technology Stack
 - **Build Tool:** Vite 7.x (dev server with HMR)
 - **Language:** TypeScript + TSX (strict mode, ES2020 target)
 - **Components:** Native Web Components with Shadow DOM + TSX syntax
+- **JSX Library:** Embla (custom JSX factory, linked via npm workspace)
 - **Styling:** CSS Modules (`.module.css`) with CSS custom properties
 - **Deployment Target:** Static site (GitHub Pages)
 - **Browser Support:** Modern browsers only (Chrome 90+, Firefox 88+, Safari 14+, Edge 90+)
@@ -20,8 +23,8 @@ Personal blog/web app built with vanilla web components. No frameworks, no build
 - Native `HTMLElement` class extensions
 - `customElements.define()` for registration
 - Shadow DOM (`this.attachShadow({ mode: 'open' })`)
-- TSX syntax for HTML rendering (custom JSX factory, no React)
-- Custom `h()` JSX factory from `src/utils/jsx-factory.ts`
+- TSX syntax for HTML rendering (from Embla library)
+- `import { h, Fragment } from 'embla'` for JSX factory
 - CSS custom properties for theming/variables
 - Vanilla CSS with CSS Modules for scoping
 
@@ -30,7 +33,7 @@ Personal blog/web app built with vanilla web components. No frameworks, no build
 - React or other framework-specific JSX factories
 - CSS preprocessors (Sass, Less, Stylus)
 - Virtual DOM libraries
-- Runtime template libraries (other than our custom JSX factory)
+- Runtime template libraries (other than Embla)
 - Polyfills or fallbacks for legacy browsers
 - Unnecessary transpilation or compilation
 
@@ -40,9 +43,7 @@ src/
   components/
     component-name.tsx         # Component logic with TSX
     component-name.module.css  # Scoped styles
-  utils/
-    jsx-factory.ts             # Custom JSX factory (h, Fragment)
-  jsx.d.ts                     # JSX type definitions
+  jsx.d.ts                     # JSX type definitions (imports from embla)
   index.ts                     # Entry point, registers all components
 index.html                     # HTML entry for Vite
 old/                          # IGNORE - legacy code, not current implementation
@@ -50,7 +51,7 @@ old/                          # IGNORE - legacy code, not current implementation
 
 ## Component Pattern
 ```tsx
-import { h } from '../utils/jsx-factory';
+import { h } from 'embla';
 import styles from './component-name.module.css?inline';
 
 // Create stylesheet once, shared across all instances
