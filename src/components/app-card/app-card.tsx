@@ -1,7 +1,11 @@
 import { h } from 'embla';
+import styleComponent from '../components.module.css?inline';
 import styles from './app-card.module.css?inline';
 
 // Create stylesheet once, shared across all instances
+const styleComponentSheet = new CSSStyleSheet();
+styleComponentSheet.replaceSync(styleComponent);
+
 const sheet = new CSSStyleSheet();
 sheet.replaceSync(styles);
 
@@ -25,7 +29,7 @@ export class AppCard extends HTMLElement {
     this.shadowRoot.innerHTML = '';
 
     // Adopt the shared stylesheet (efficient, reused across all instances)
-    this.shadowRoot.adoptedStyleSheets = [sheet];
+    this.shadowRoot.adoptedStyleSheets = [styleComponentSheet, sheet];
 
     const cardEl = (
       <div className="app-card">
