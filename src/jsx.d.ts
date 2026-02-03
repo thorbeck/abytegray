@@ -1,5 +1,12 @@
 /**
- * TypeScript JSX type definitions for custom JSX factory
+ * JSX type definitions for embla
+ * 
+ * NOTE: These types are maintained in the embla package and copied here.
+ * When embla is installed as an external package (not in a monorepo),
+ * these types will be automatically available via embla's dist/jsx.d.ts.
+ * 
+ * In a monorepo setup, this file is needed because TypeScript resolves
+ * to embla's source files where the triple-slash reference may not work correctly.
  */
 
 import { h, Fragment } from 'embla';
