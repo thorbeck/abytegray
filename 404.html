@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    // GitHub Pages SPA redirect script
+    // This script captures the current URL and redirects to index.html
+    // preserving the path for the router to handle
+    
+    const pathSegments = window.location.pathname.slice(1).split('/').filter(Boolean);
+    const redirectPath = pathSegments.length > 0 
+      ? '/?p=/' + pathSegments.join('/')
+      : '/';
+    
+    window.location.replace(
+      window.location.origin + redirectPath + window.location.search + window.location.hash
+    );
+  </script>
+</head>
+<body>
+  <!-- This page is used to redirect all routes to index.html for GitHub Pages -->
+</body>
+</html>

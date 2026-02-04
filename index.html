@@ -4,6 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Abytegray - Personal Blog</title>
+  <script>
+    // GitHub Pages SPA support: restore path from query parameter
+    (function() {
+      const query = window.location.search;
+      if (query.startsWith('?p=')) {
+        const path = query.slice(3);
+        window.history.replaceState({}, '', path + window.location.hash);
+      }
+    })();
+  </script>
   <style>
     :root {
       --border-color: #e0e0e0;
@@ -42,21 +52,20 @@
 </head>
 <body>
   <main>
-    <h1>Welcome to Abytegray</h1>
-    
-    <app-card 
-      title="Web Components" 
-      content="This is a custom web component built with vanilla TypeScript and CSS modules.">
-    </app-card>
-
-    <app-card 
-      title="No Framework Required" 
-      content="Using native browser APIs with shadow DOM for encapsulation.">
-    </app-card>
-
-    <app-card title="Custom Content">
-      <p style="margin: 1rem 0 0 0; color: #999;">This content comes from a slot!</p>
-    </app-card>
+    <embla-router>
+      <!-- Base route (home page) -->
+      <embla-route path="/" component="page-home" title="Home - Abytegray" base></embla-route>
+      
+      <!-- Static routes -->
+      <embla-route path="/about" component="page-about" title="About - Abytegray"></embla-route>
+      <embla-route path="/articles" component="page-articles" title="Articles - Abytegray"></embla-route>
+      
+      <!-- Dynamic route with parameter -->
+      <embla-route path="/article/:id" component="page-article" title="Article - Abytegray"></embla-route>
+      
+      <!-- 404 Not Found route -->
+      <embla-route component="page-notfound" title="Page Not Found - Abytegray" notfound></embla-route>
+    </embla-router>
   </main>
 
   <script type="module" src="/src/index.ts"></script>
