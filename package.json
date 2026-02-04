@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "embla": "*"
+    "embla": "github:thorbeck/embla#main"
   },
   "devDependencies": {
     "@types/node": "^25.1.0",

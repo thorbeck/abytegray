@@ -1,11 +1,11 @@
 {
 	"folders": [
-		{
-			"path": "."
-		},
-		{
-			"path": "../embla"
-		}
-	],
+    {
+      "path": "."
+    },
+    {
+      "path": "../embla"
+    }
+  ],
   "settings": {}
 }
